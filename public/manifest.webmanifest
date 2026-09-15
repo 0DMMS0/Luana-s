@@ -1,0 +1,9 @@
+{
+  "name": "Ikigai · Academia",
+  "short_name": "Ikigai",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4efe6",
+  "theme_color": "#11100f",
+  "icons": [{"src":"/ikigai-logo.png","sizes":"512x512","type":"image/png"}]
+}
