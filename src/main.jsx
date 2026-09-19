@@ -1,8 +1,7 @@
 import React,{createContext,useContext,useEffect,useState}from'react';
 import{createRoot}from'react-dom/client';
-import{createClient}from'@supabase/supabase-js';
+import{supabase}from'./supabase-client.js';
 import'./styles.css';
-const supabase=createClient('https://xeorqezrlnbfnmdpssxw.supabase.co','sb_publishable_6Qrx_e4uGn-ObVrPOpXq3g_F_pqcTTy');
 const AuthContext=createContext(null); let Students;
 async function audit(action,entity_type,entity_id,details={}){try{const{data}=await supabase.auth.getUser();await supabase.from('audit_logs').insert({actor_id:data.user?.id||null,action,entity_type,entity_id,after_data:details})}catch(e){console.warn('audit log failed',e)}}
 function printReceipt(payment){const w=window.open('','_blank','noopener,noreferrer');if(!w)return;w.document.write(`<html><head><title>Recibo Ikigai</title><style>body{font-family:Arial;padding:32px;color:#171513}h1{color:#b88a2c}hr{border:0;border-top:1px solid #ddd}p{font-size:16px}</style></head><body><h1>IKIGAI ACADEMY</h1><h2>Recibo de pago</h2><hr><p><b>Alumno:</b> ${payment.students?.full_name||'Alumno'}</p><p><b>Monto:</b> ₡${Number(payment.amount).toLocaleString('es-CR')}</p><p><b>Periodo:</b> ${payment.period}</p><p><b>Método:</b> ${payment.payment_method||'cash'}</p><p><b>Estado:</b> ${payment.status}</p><p><b>Fecha:</b> ${payment.paid_at?new Date(payment.paid_at).toLocaleString('es-CR'):'Pendiente'}</p><script>window.onload=()=>window.print()</script></body></html>`);w.document.close()}

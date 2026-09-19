@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build outputs and deployment bundles (reproducible with npm run build)
+dist/
+redesign/dist/
+deploy-package-*/
+*.tar
+*.zip
+
+# Supabase CLI temporary state
+supabase/.temp/

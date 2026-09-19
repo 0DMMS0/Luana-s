@@ -1,9 +1,0 @@
-{
-  "name": "Ikigai Academy",
-  "short_name": "Ikigai",
-  "start_url": "/#inicio",
-  "display": "standalone",
-  "background_color": "#f5f0e8",
-  "theme_color": "#11100f",
-  "icons": [{"src":"/ikigai-logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]
-}
